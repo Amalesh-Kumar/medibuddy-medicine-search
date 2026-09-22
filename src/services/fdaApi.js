@@ -3,8 +3,7 @@ const BASE_URL = "https://api.fda.gov/drug/label.json";
 export async function searchMedicines(query, signal) {
   const encodedQuery = encodeURIComponent(query.trim());
 
-  const url = `${BASE_URL}?search=openfda.brand_name:"${encodedQuery}"&limit=20`;
-
+const url = `${BASE_URL}?search=openfda.brand_name:${encodedQuery}*&limit=20`;
   const response = await fetch(url, { signal });
 
   if (!response.ok) {
